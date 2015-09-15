@@ -14,6 +14,8 @@ Unless stated otherwise all content is released under a [CC0]+BY licence. I'd ap
 
 ![](https://dl.dropboxusercontent.com/u/393477/SharedPresentations/Shared_HTML5/Images/CC_BY.png)
 
+\newpage
+
 ## Using Ipython for presentations
 
 A short video showing how to use Ipython for presentations
@@ -51,9 +53,22 @@ A short video showing how to use Ipython for presentations
     
     ### Export this notebook and the document header as PDF using Pandoc
     
-    commandLineSyntax = 'pandoc  -f markdown -t latex -N -V geometry:margin=1in DocumentHeader.md 20150916_OGC_Reuse_under_licence.md --filter pandoc-citeproc  --latex-engine=xelatex --toc -o 20150916_OGC_Reuse_under_licence.pdf '
+    commandLineSyntax = 'pandoc  -f markdown -t latex -N -V geometry:margin=1in DocumentHeader.md 20150916_OGC_Reuse_under_licence.md --filter pandoc-citeproc  --latex-engine=xelatex --toc -o interim.pdf '
     
     os.system(commandLineSyntax)
+    
+    ### Remove cruft from the pdf
+    
+    commandLineSyntax = 'pdftk interim.pdf cat 1-3 16-end output 20150916_OGC_Reuse_under_licence.pdf'
+    
+    os.system(commandLineSyntax)
+    
+    ### Remove the interim pdf
+    
+    commandLineSyntax = 'rm interim.pdf'
+    
+    os.system(commandLineSyntax)
+
 
     ipython nbconvert --to markdown 20150916_OGC_Reuse_under_licence.ipynb
 
@@ -565,6 +580,8 @@ If running dynamically run the scripts below
     Populating the interactive namespace from numpy and matplotlib
 
 
+\newpage
+
 ## About me
 
  
@@ -574,11 +591,17 @@ If running dynamically run the scripts below
 * Research Fellow, University of Nottingham: [orcid](http://orcid.org/0000-0002-2991-811X)
 * Director, Geolytics Limited - A spatial data analytics consultancy
 
+## About this presentation
+
+* [Available on GitHub](https://github.com/AntArch/Presentations_Github/tree/master/20150916_OGC_Reuse_under_licence) - https://github.com/AntArch/Presentations_Github/
+* [Fully referenced PDF](https://github.com/AntArch/Presentations_Github/blob/master/20150916_OGC_Reuse_under_licence/20150916_OGC_Reuse_under_licence.pdf)
 
 
 \newpage
 
-# In the beginning was the geoword
+# A potted history of mapping
+
+## In the beginning was the geoword
 
 and the word was ***cartography***
 
@@ -681,6 +704,8 @@ Each of these data objects can be licenced in a different way. This shows some o
 
 ![A licence describes what you can and cannot do to a data object @licence_classification_2015](https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/Licence_Constraints.png)
 
+Concepts (derived from Formal Concept Analysis) surrounding licences
+
 \newpage
 
 Two lead organisations have developed legal frameworks for content licensing:
@@ -690,7 +715,10 @@ Two lead organisations have developed legal frameworks for content licensing:
 
 Until the release of [CC version 4](https://wiki.creativecommons.org/4.0), published in November 2013, the CC licence did not cover data. Between them, CC and ODC licences can cover all forms of digital work.
 
-There are many others - many bespoke.
+* **There are many other licence types**
+* Many are bespoke
+    * Bespoke licences are difficult to manage
+    * Many legacy datasets have bespoke licences
 
 ![Creative Commons @love_CC_2008](https://farm4.staticflickr.com/3148/2732488224_aedf36e837_b_d.jpg)
 
@@ -742,7 +770,9 @@ Table: [Creative Commons license combinations](https://docs.google.com/spreadshe
 
 # Why are licenses important?
 
-It's all about license compatibility!
+* They tell you what you can and can't do with 'stuff'
+* Very significant when multiple datasets are combined
+    * It then becomes an issue of license compatibility
 
 
 ![Compatibility of common open-source software licenses @Floss-license-slide-image_Wheeler_2007](https://upload.wikimedia.org/wikipedia/commons/1/1d/Floss-license-slide-image.png)
@@ -772,17 +802,19 @@ A conceptual licence processing workflow. The licence processing service analyse
 # A rudimentry logic example
 
 ```text
-Data1 isPartOf NewThing.
+Data1 hasDerivedContentIn NewThing.
 
 Data1 hasLicence a cc-by-sa.
 
 What hasLicence a cc-by-sa? #reason here
 
-If X isPartOf Y and hasLicence Z then Y hasLicence Z. #reason here
+If X hasDerivedContentIn Y and hasLicence Z then Y hasLicence Z. #reason here
 
-Data2 isPartOf NewThing.
+Data2 hasDerivedContentIn NewThing.
 
-Data2 hasLicence a cc-by-nc-sa. #reason here
+Data2 hasLicence a cc-by-nc-sa.
+
+What hasLicence a cc-by-nc-sa? #reason here
 
 Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here
 ```
@@ -812,7 +844,7 @@ And processing this within the Protege reasoning environment
 
 ## Here's something I prepared earlier
 
-A live presentation.....
+A live presentation (for those who weren't at the event).....
 
 
     from IPython.display import YouTubeVideo
@@ -832,6 +864,30 @@ A live presentation.....
         ></iframe>
         
 
+
+
+\newpage
+
+# A more robust logic
+
+* Would need to decouple licence incompatibility from licence name into licence clause (see table below)
+* Deal with all licence type
+* Provide recommendations based on desired derivative licence type
+* Link this through to the type of process in a workflow:
+    * data derivation is, from a licence position, very different to contextual display
+* etc..... for discussion?
+
+License|Reproduction|Distribution|Derivation|ND|BY|SA|NC
+----|----|----|----|----|----|----|----
+CC0|X|X|X||||
+CC-BY-ND|X|X||X|X||
+CC-BY-NC-ND|X|X||X|X||X
+CC-BY|X|X|X||X||
+CC-BY-SA|X|X|X||X|X|
+CC-BY-NC|X|X|X||X||X
+CC-BY-NC-SA|X|X|X||X|X|X
+
+Table: [Creative Commons license combinations](https://docs.google.com/spreadsheets/d/17aT7Dj6QtE88XPS44oPQ7mVeSdY1YnZ1rlpjPvXNz0E/pub?single=true&gid=0&output=html)
 
 
 \newpage
