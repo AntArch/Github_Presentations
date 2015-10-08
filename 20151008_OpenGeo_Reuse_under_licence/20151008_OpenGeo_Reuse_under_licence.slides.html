@@ -947,7 +947,7 @@ xlwt (1.0.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="o">!</span>ipython nbconvert 20151008_OpenGeo_Reuse_under_licence.ipynb --to slides --post serve
@@ -968,45 +968,14 @@ xlwt (1.0.0)
 [NbConvertApp] Converting notebook 20151008_OpenGeo_Reuse_under_licence.ipynb to slides
 [NbConvertApp] Writing 260255 bytes to 20151008_OpenGeo_Reuse_under_licence.slides.html
 [NbConvertApp] Redirecting reveal.js requests to https://cdn.jsdelivr.net/reveal.js/2.6.2
-Traceback (most recent call last):
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/bin/ipython&quot;, line 6, in &lt;module&gt;
-    sys.exit(start_ipython())
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/IPython/__init__.py&quot;, line 118, in start_ipython
-    return launch_new_instance(argv=argv, **kwargs)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/traitlets/config/application.py&quot;, line 592, in launch_instance
-    app.start()
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/IPython/terminal/ipapp.py&quot;, line 349, in start
-    return self.subapp.start()
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/nbconvert/nbconvertapp.py&quot;, line 286, in start
-    self.convert_notebooks()
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/nbconvert/nbconvertapp.py&quot;, line 409, in convert_notebooks
-    self.convert_single_notebook(notebook_filename)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/nbconvert/nbconvertapp.py&quot;, line 382, in convert_single_notebook
-    self.postprocess_single_notebook(write_results)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/nbconvert/nbconvertapp.py&quot;, line 367, in postprocess_single_notebook
-    self.postprocessor(write_results)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/nbconvert/postprocessors/base.py&quot;, line 28, in __call__
-    self.postprocess(input)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/nbconvert/postprocessors/serve.py&quot;, line 87, in postprocess
-    http_server.listen(self.port, address=self.ip)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/tornado/tcpserver.py&quot;, line 126, in listen
-    sockets = bind_sockets(port, address=address)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/tornado/netutil.py&quot;, line 187, in bind_sockets
-    sock.bind(sockaddr)
-  File &quot;/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/socket.py&quot;, line 228, in meth
-    return getattr(self._sock,name)(*args)
-error: [Errno 98] Address already in use
-
-If you suspect this is an IPython bug, please report it at:
-    https://github.com/ipython/ipython/issues
-or send an email to the mailing list at ipython-dev@scipy.org
-
-You can print a more detailed traceback right now with &quot;%tb&quot;, or use &quot;%debug&quot;
-to interactively debug it.
-
-Extra-detailed tracebacks for bug-reporting purposes can be enabled via:
-    c.Application.verbose_crash=True
-
+Serving your slides at http://127.0.0.1:8000/20151008_OpenGeo_Reuse_under_licence.slides.html
+Use Control-C to stop this server
+Created new window in existing browser session.
+WARNING:tornado.access:404 GET /custom.css (127.0.0.1) 3.76ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.84ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.97ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.84ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.88ms
 </pre>
 </div>
 </div>
