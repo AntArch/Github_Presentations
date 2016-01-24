@@ -1,0 +1,1197 @@
+
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/InteroperabilitySemanticsAndOpenData.png" alt="" />
+
+</div>
+<p>Go down for licence and other metadata about this presentation</p>
+
+<h1 id="preamble">Preamble</h1>
+<h2 id="licence">Licence</h2>
+<p>Unless stated otherwise all content is released under a [CC0]+BY licence. I'd appreciate it if you reference this but it is not necessary.</p>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/SharedPresentations/Shared_HTML5/Images/CC_BY.png" alt="" />
+
+</div>
+
+<h2 id="using-ipython-for-presentations">Using Ipython for presentations</h2>
+<p>A short video showing how to use Ipython for presentations</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> IPython.display <span class="im">import</span> YouTubeVideo
+YouTubeVideo(<span class="st">&#39;F4rFuIb1Ie4&#39;</span>)</code></pre></div>
+<pre><code>    &lt;iframe
+        width=&quot;400&quot;
+        height=&quot;300&quot;
+        src=&quot;https://www.youtube.com/embed/F4rFuIb1Ie4&quot;
+        frameborder=&quot;0&quot;
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+    </code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">## PDF output using pandoc</span>
+
+<span class="im">import</span> os
+
+
+<span class="co">### Export this notebook as markdown</span>
+commandLineSyntax <span class="op">=</span> <span class="st">&#39;ipython nbconvert --to markdown 2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb&#39;</span>
+<span class="bu">print</span> (commandLineSyntax)
+
+os.system(commandLineSyntax)
+
+<span class="co">### Export this notebook and the document header as PDF using Pandoc</span>
+
+commandLineSyntax <span class="op">=</span> <span class="st">&#39;pandoc  -f markdown -t latex -N -V geometry:margin=1in DocumentHeader.md 2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.md --filter pandoc-citeproc  --latex-engine=xelatex --toc -o interim.pdf &#39;</span>
+
+os.system(commandLineSyntax)
+
+<span class="co">### Remove cruft from the pdf</span>
+
+commandLineSyntax <span class="op">=</span> <span class="st">&#39;pdftk interim.pdf cat 1-3 16-end output 2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.pdf&#39;</span>
+
+os.system(commandLineSyntax)
+
+<span class="co">### Remove the interim pdf</span>
+
+commandLineSyntax <span class="op">=</span> <span class="st">&#39;rm interim.pdf&#39;</span>
+
+os.system(commandLineSyntax)</code></pre></div>
+<pre><code>ipython nbconvert --to markdown 2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb
+
+
+
+
+
+0</code></pre>
+<h2 id="the-environment">The environment</h2>
+<p>In order to replicate my environment you need to know what I have installed!</p>
+<h3 id="set-up-watermark">Set up watermark</h3>
+<p>This describes the versions of software used during the creation.</p>
+<p>Please note that critical libraries can also be watermarked as follows:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%</span>watermark <span class="op">-</span>v <span class="op">-</span>m <span class="op">-</span>p numpy,scipy</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%</span>install_ext https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>rasbt<span class="op">/</span>python_reference<span class="op">/</span>master<span class="op">/</span>ipython_magic<span class="op">/</span>watermark.py
+<span class="op">%</span>load_ext watermark</code></pre></div>
+<pre><code>Installed watermark.py. To use it, type:
+  %load_ext watermark</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%</span>watermark <span class="op">-</span>a <span class="st">&quot;Anthony Beck&quot;</span>  <span class="op">-</span>d <span class="op">-</span>v <span class="op">-</span>m <span class="op">-</span>g</code></pre></div>
+<pre><code>Anthony Beck 29/06/2015 
+
+CPython 2.7.10
+IPython 3.2.0
+
+compiler   : GCC 4.4.7 20120313 (Red Hat 4.4.7-1)
+system     : Linux
+release    : 3.13.0-37-generic
+machine    : x86_64
+processor  : x86_64
+CPU cores  : 4
+interpreter: 64bit
+Git hash   : </code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#List of installed conda packages</span>
+<span class="op">!</span>conda <span class="bu">list</span></code></pre></div>
+<pre><code># packages in environment at /home/arb/LocalPython/Anaconda27/anaconda:
+#
+_license                  1.1                      py27_0  
+abstract-rendering        0.5.1                np19py27_0  
+accelerate                1.11.0              np19py27_p0  
+affine                    1.1.0                    py27_0  
+alabaster                 0.7.3                    py27_0  
+anaconda                  2.2.0                np19py27_0  
+argcomplete               0.8.4                    py27_0  
+arrow                     0.5.4                     &lt;pip&gt;
+astroid                   1.3.6                     &lt;pip&gt;
+astropy                   1.0.2                np19py27_0  
+babel                     1.3                      py27_0  
+backports.ssl-match-hostname 3.4.0.2                   &lt;pip&gt;
+basemap                   1.0.7                np19py27_0  
+bcolz                     0.8.1                np19py27_0  
+beautiful-soup            4.3.2                    py27_0  
+beautifulsoup4            4.3.2                     &lt;pip&gt;
+binstar                   0.10.3                   py27_0  
+bitarray                  0.8.1                    py27_0  
+blaze                     0.8.0                     &lt;pip&gt;
+blaze-core                0.8.0                np19py27_0  
+blz                       0.6.2                np19py27_0  
+bokeh                     0.8.2                np19py27_0  
+boto                      2.38.0                   py27_0  
+bottle                    0.12.7                   py27_0  
+brewer2mpl                1.4                      py27_0  
+cairo                     1.12.18                       4  
+cartopy                   0.10.0               np18py27_0  
+cdecimal                  2.3                      py27_0  
+certifi                   14.05.14                 py27_0  
+cffi                      0.9.2                    py27_0  
+click                     4.0                      py27_0  
+cligj                     0.1.0                    py27_0  
+cloog                     0.18.0                        0  
+clyent                    0.3.4                    py27_0  
+colorama                  0.3.3                    py27_0  
+conda                     3.14.0                   py27_0  
+conda-build               1.12.1                   py27_0  
+conda-env                 2.2.3                    py27_0  
+configobj                 5.0.6                    py27_0  
+cryptography              0.8.2                    py27_0  
+cudatoolkit               6.0                          p0  
+curl                      7.38.0                        0  
+cython                    0.22                     py27_0  
+cytoolz                   0.7.2                    py27_0  
+datashape                 0.4.5                np19py27_0  
+dateutil                  2.4.1                    py27_0  
+decorator                 3.4.0                    py27_0  
+descartes                 1.0.1                    py27_0  
+docutils                  0.12                     py27_0  
+dynd-python               0.6.5                np19py27_0  
+enum                      0.4.4                     &lt;pip&gt;
+enum34                    1.0.4                    py27_0  
+fastcache                 1.0.2                    py27_0  
+fiona                     1.5.1                np19py27_0  
+flask                     0.10.1                   py27_1  
+fontconfig                2.11.1                        4  
+freetype                  2.5.2                         2  
+funcsigs                  0.4                      py27_0  
+futures                   2.2.0                    py27_0  
+gdal                      1.11.2               np19py27_2  
+geopandas                 0.1.1                    py27_0  
+geopy                     1.10.0                    &lt;pip&gt;
+geos                      3.3.3                         0  
+gevent                    1.0.1                    py27_0  
+gevent-websocket          0.9.3                    py27_0  
+glib                      2.43.0                        2  
+gmp                       5.1.2                         2  
+greenlet                  0.4.6                    py27_0  
+grin                      1.2.1                    py27_1  
+h5py                      2.5.0                np19py27_0  
+harfbuzz                  0.9.35                        6  
+hdf5                      1.8.14                        0  
+html5lib                  0.99999                   &lt;pip&gt;
+ipython                   3.2.0                    py27_0  
+ipython-notebook          3.2.0                    py27_0  
+ipython-qtconsole         3.1.0                    py27_0  
+isl                       0.12.2                        0  
+itsdangerous              0.24                     py27_0  
+jdcal                     1.0                      py27_0  
+jedi                      0.8.1                    py27_0  
+jinja2                    2.7.3                    py27_1  
+jpeg                      8d                            0  
+jsonschema                2.4.0                    py27_0  
+libdynd                   0.6.5                         0  
+libffi                    3.0.13                        0  
+libgcc                    4.8.4                         1  
+libgdal                   1.11.2                        0  
+libnetcdf                 4.3.2                         1  
+libpng                    1.6.17                        0  
+libsodium                 0.4.5                         0  
+libtiff                   4.0.2                         1  
+libxml2                   2.9.0                         0  
+libxslt                   1.1.28                        0  
+llvmlite                  0.4.0                    py27_0  
+logilab-common            0.63.2                    &lt;pip&gt;
+lxml                      3.4.4                    py27_0  
+mapnik                    0.1                       &lt;pip&gt;
+markupsafe                0.23                     py27_0  
+matplotlib                1.4.3                np19py27_2  
+mistune                   0.6                      py27_0  
+mkl                       11.1                np19py27_p3  
+mkl-rt                    11.1                         p0  
+mkl-service               1.0.0                   py27_p1  
+mklfft                    2.0                 np19py27_p0  
+mock                      1.0.1                    py27_0  
+mpc                       1.0.1                         0  
+mpfr                      3.1.2                         0  
+multipledispatch          0.4.7                    py27_0  
+ncurses                   5.9                           4  
+networkx                  1.9.1                    py27_0  
+nltk                      3.0.2                np19py27_0  
+nose                      1.3.6                    py27_0  
+notedown                  1.4.4                     &lt;pip&gt;
+numba                     0.18.2               np19py27_1  
+numbapro                  0.18.0              np19py27_p2  
+numbapro_cudalib          0.2                           0  
+numexpr                   2.3.1               np19py27_p0  [mkl]
+numpy                     1.9.2                   py27_p0  [mkl]
+odo                       0.3.2                np19py27_0  
+openpyxl                  2.0.2                    py27_0  
+openssl                   1.0.1k                        1  
+pandana                   0.1.2                    py27_0  
+pandas                    0.16.2               np19py27_0  
+pandasql                  0.6.2                np19py27_0  
+pandoc-attributes         0.1.7                     &lt;pip&gt;
+pandocfilters             1.2.4                     &lt;pip&gt;
+pango                     1.36.8                        3  
+patchelf                  0.6                           0  
+patsy                     0.3.0                np19py27_0  
+pcre                      8.31                          0  
+pep8                      1.6.2                    py27_0  
+pillow                    2.7.0                    py27_1  
+pip                       7.0.3                    py27_0  
+pixman                    0.26.2                        0  
+plotly                    1.6.17                    &lt;pip&gt;
+ply                       3.6                      py27_0  
+prettyplotlib             0.1.7                     &lt;pip&gt;
+prettytable               0.7.2                    py27_0  
+proj4                     4.8.0                         0  
+psutil                    2.2.1                    py27_0  
+ptyprocess                0.4                      py27_0  
+py                        1.4.26                   py27_0  
+py2cairo                  1.10.0                   py27_2  
+pyasn1                    0.1.7                    py27_0  
+pycosat                   0.6.1                    py27_0  
+pycparser                 2.12                     py27_0  
+pycrypto                  2.6.1                    py27_0  
+pycurl                    7.19.5.1                 py27_0  
+pyflakes                  0.8.1                    py27_0  
+pygments                  2.0.2                    py27_0  
+pylint                    1.4.3                     &lt;pip&gt;
+pymc                      2.3.4               np19py27_p0  [mkl]
+pyopenssl                 0.15.1                   py27_0  
+pyparsing                 2.0.3                    py27_0  
+pyproj                    1.9.3                    py27_0  
+pyqt                      4.11.3                   py27_1  
+pysal                     1.6.0                np19py27_1  
+pyshp                     1.2.1                     &lt;pip&gt;
+pytables                  3.1.1                np19py27_2  
+pytest                    2.7.0                    py27_0  
+python                    2.7.10                        0  
+python-dateutil           2.4.2                    py27_0  
+pytz                      2015.4                   py27_0  
+pyyaml                    3.11                     py27_1  
+pyzmq                     14.7.0                   py27_0  
+qt                        4.8.6                         3  
+r                         3.1.3                         0  
+r-base                    3.1.3                         2  
+r-boot                    1.3_16                 r3.1.3_0  
+r-class                   7.3_12                 r3.1.3_0  
+r-cluster                 1.15.3                        0  
+r-codetools               0.2_11                 r3.1.3_0  
+r-foreign                 0.8_63                 r3.1.3_0  
+r-kernsmooth              2.23_14                r3.1.3_0  
+r-lattice                 0.20_31                r3.1.3_0  
+r-mass                    7.3.37                        0  
+r-matrix                  1.2_1                  r3.1.3_0  
+r-mgcv                    1.8_6                  r3.1.3_0  
+r-nlme                    3.1.118                       0  
+r-nlme                    3.1_120                r3.1.3_0  
+r-nnet                    7.3_9                  r3.1.3_0  
+r-recommended             3.1.3                         0  
+r-rpart                   4.1_9                  r3.1.3_0  
+r-spatial                 7.3_9                  r3.1.3_0  
+r-survival                2.38_2                 r3.1.3_0  
+rasterio                  0.15.1                   py27_0  
+readline                  6.2                           2  
+redis                     2.6.9                         0  
+redis-py                  2.10.3                   py27_0  
+requests                  2.7.0                    py27_0  
+rope                      0.9.4                    py27_1  
+rpy2                      2.5.6                    py27_0  
+runipy                    0.1.3                    py27_0  
+scikit-image              0.11.3               np19py27_0  
+scikit-learn              0.16.1              np19py27_p0  [mkl]
+scipy                     0.15.1              np19py27_p0  [mkl]
+seaborn                   0.5.1                     &lt;pip&gt;
+setuptools                17.1.1                   py27_0  
+shapely                   1.5.9                     &lt;pip&gt;
+simplejson                3.6.3                    py27_0  
+singledispatch            3.4.0.3                  py27_1  
+sip                       4.16.5                   py27_0  
+six                       1.9.0                    py27_0  
+snowballstemmer           1.2.0                    py27_0  
+snuggs                    1.3.1                     &lt;pip&gt;
+sockjs-tornado            1.0.1                    py27_0  
+sphinx                    1.3.1                    py27_0  
+sphinx-rtd-theme          0.1.7                     &lt;pip&gt;
+sphinx_rtd_theme          0.1.7                    py27_0  
+spyder                    2.3.4                    py27_1  
+spyder-app                2.3.4                    py27_0  
+sqlalchemy                1.0.3                    py27_0  
+sqlite                    3.8.4.1                       1  
+sqlparse                  0.1.14                   py27_0  
+ssl_match_hostname        3.4.0.2                  py27_0  
+statsmodels               0.6.1                np19py27_0  
+sympy                     0.7.6                    py27_0  
+system                    5.8                           2  
+tables                    3.1.1                     &lt;pip&gt;
+terminado                 0.5                      py27_0  
+theano                    0.7.0                np19py27_0  
+tk                        8.5.18                        0  
+toolz                     0.7.2                    py27_0  
+tornado                   4.2                      py27_0  
+tweepy                    2.3                      py27_0  
+twitter                   1.17.0                    &lt;pip&gt;
+ujson                     1.33                     py27_0  
+unicodecsv                0.9.4                    py27_0  
+urbansim                  2.0.1                     &lt;pip&gt;
+util-linux                2.21                          0  
+werkzeug                  0.10.4                   py27_0  
+xlrd                      0.9.3                    py27_0  
+xlsxwriter                0.7.2                    py27_0  
+xlwt                      1.0.0                    py27_0  
+yaml                      0.1.6                         0  
+zeromq                    4.0.5                         0  
+zlib                      1.2.8                         0  </code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#List of installed pip packages</span>
+<span class="op">!</span>pip <span class="bu">list</span></code></pre></div>
+<pre><code>abstract-rendering (0.5.1)
+affine (1.1.0)
+alabaster (0.7.3)
+argcomplete (0.8.4)
+arrow (0.5.4)
+astroid (1.3.6)
+astropy (1.0.2)
+Babel (1.3)
+backports.ssl-match-hostname (3.4.0.2)
+basemap (1.0.7)
+bcolz (0.8.1)
+beautifulsoup4 (4.3.2)
+binstar (0.10.3)
+bitarray (0.8.1)
+blaze (0.8.0)
+blz (0.6.2)
+bokeh (0.8.2)
+boto (2.38.0)
+bottle (0.12.7)
+brewer2mpl (1.4.1)
+Cartopy (0.10.0)
+cdecimal (2.3)
+certifi (14.5.14)
+cffi (0.9.2)
+click (4.0)
+cligj (0.1.0)
+clyent (0.3.4)
+colorama (0.3.3)
+conda (3.14.0)
+conda-build (1.12.1)
+conda-env (2.2.3)
+configobj (5.0.6)
+cryptography (0.8.2)
+Cython (0.22)
+cytoolz (0.7.2)
+datashape (0.4.5)
+decorator (3.4.0)
+descartes (1.0.1)
+docutils (0.12)
+enum (0.4.4)
+enum34 (1.0.4)
+fastcache (1.0.2)
+Fiona (1.5.1)
+Flask (0.10.1)
+funcsigs (0.4)
+futures (2.2.0)
+GDAL (1.11.2)
+geopandas (0.1.1)
+geopy (1.10.0)
+gevent (1.0.1)
+gevent-websocket (0.9.3)
+greenlet (0.4.6)
+grin (1.2.1)
+h5py (2.5.0)
+html5lib (0.99999)
+ipython (3.2.0)
+itsdangerous (0.24)
+jdcal (1.0)
+jedi (0.8.1)
+Jinja2 (2.7.3)
+jsonschema (2.4.0)
+llvmlite (0.4.0)
+logilab-common (0.63.2)
+lxml (3.4.4)
+mapnik (0.1)
+MarkupSafe (0.23)
+matplotlib (1.4.3)
+mistune (0.6)
+mklfft (0.0.0)
+mock (1.0.1)
+multipledispatch (0.4.7)
+networkx (1.9.1)
+nltk (3.0.2)
+nose (1.3.6)
+notedown (1.4.4)
+numba (0.18.2)
+numbapro (0.18.0)
+numexpr (2.3.1)
+numpy (1.9.2)
+odo (0.3.2)
+openpyxl (2.0.2)
+pandana (0.1.2)
+pandas (0.16.2)
+pandasql (0.6.2)
+pandoc-attributes (0.1.7)
+pandocfilters (1.2.4)
+patsy (0.3.0)
+pep8 (1.6.2)
+Pillow (2.7.0)
+pip (7.0.3)
+plotly (1.6.17)
+ply (3.6)
+prettyplotlib (0.1.7)
+prettytable (0.7.2)
+psutil (2.2.1)
+ptyprocess (0.4)
+py (1.4.26)
+pyasn1 (0.1.7)
+pycosat (0.6.1)
+pycparser (2.12)
+pycrypto (2.6.1)
+pycurl (7.19.5.1)
+pyflakes (0.8.1)
+Pygments (2.0.2)
+pylint (1.4.3)
+pymc (2.3.4)
+pyOpenSSL (0.15.1)
+pyparsing (2.0.3)
+pyproj (1.9.4)
+PySAL (1.6.0)
+pyshp (1.2.1)
+pytest (2.7.0)
+python-dateutil (2.4.2)
+pytz (2015.4)
+PyYAML (3.11)
+pyzmq (14.7.0)
+rasterio (0.23.0)
+redis (2.10.3)
+requests (2.7.0)
+rope (0.9.4)
+rpy2 (2.5.6)
+runipy (0.1.3)
+scikit-image (0.11.3)
+scikit-learn (0.16.1)
+scipy (0.15.1)
+seaborn (0.5.1)
+setuptools (17.1.1)
+Shapely (1.5.9)
+simplejson (3.6.3)
+singledispatch (3.4.0.3)
+six (1.9.0)
+snowballstemmer (1.2.0)
+snuggs (1.3.1)
+sockjs-tornado (1.0.1)
+Sphinx (1.2.3)
+sphinx-rtd-theme (0.1.7)
+spyder (2.3.4)
+SQLAlchemy (1.0.3)
+sqlparse (0.1.14)
+statsmodels (0.6.1)
+sympy (0.7.6)
+tables (3.1.1)
+terminado (0.5)
+Theano (0.7.0)
+toolz (0.7.2)
+tornado (4.2)
+tweepy (2.3.0)
+twitter (1.17.0)
+ujson (1.33)
+unicodecsv (0.9.4)
+urbansim (2.0.1)
+Werkzeug (0.10.4)
+xlrd (0.9.3)
+XlsxWriter (0.7.2)
+xlwt (1.0.0)</code></pre>
+<h2 id="running-dynamic-presentations">Running dynamic presentations</h2>
+<p>You need to install the <a href="https://github.com/damianavila/RISE">RISE Ipython Library</a> from <a href="https://github.com/damianavila">Damián Avila</a> for dynamic presentations</p>
+<p>To convert and run this as a static presentation run the following command:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">!</span>ipython nbconvert 2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb <span class="op">--</span>to slides <span class="op">--</span>post serve</code></pre></div>
+<pre><code>[NbConvertApp] Converting notebook 2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb to slides
+[NbConvertApp] Writing 274925 bytes to 2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.slides.html
+[NbConvertApp] Redirecting reveal.js requests to https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0
+Serving your slides at http://127.0.0.1:8000/2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.slides.html
+Use Control-C to stop this server
+Created new window in existing browser session.
+WARNING:tornado.access:404 GET /custom.css (127.0.0.1) 0.98ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.93ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.86ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.91ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.78ms
+WARNING:tornado.access:404 GET /custom.css (127.0.0.1) 0.60ms
+WARNING:tornado.access:404 GET /custom.css (127.0.0.1) 0.59ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 0.81ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 1.20ms
+ERROR:tornado.application:Uncaught exception GET /reveal.js/plugin/notes/notes.html (127.0.0.1)
+HTTPServerRequest(protocol=&#39;http&#39;, host=&#39;127.0.0.1:8000&#39;, method=&#39;GET&#39;, uri=&#39;/reveal.js/plugin/notes/notes.html&#39;, version=&#39;HTTP/1.1&#39;, remote_ip=&#39;127.0.0.1&#39;, headers={&#39;Accept-Language&#39;: &#39;en-GB,en;q=0.5&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#39;, &#39;Host&#39;: &#39;127.0.0.1:8000&#39;, &#39;User-Agent&#39;: &#39;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:43.0) Gecko/20100101 Firefox/43.0&#39;, &#39;Referer&#39;: &#39;http://127.0.0.1:8000/2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.slides.html&#39;})
+Traceback (most recent call last):
+  File &quot;/home/arb/LocalInstalls/anaconda3/lib/python3.5/site-packages/tornado/web.py&quot;, line 1401, in _stack_context_handle_exception
+    raise_exc_info((type, value, traceback))
+  File &quot;&lt;string&gt;&quot;, line 3, in raise_exc_info
+  File &quot;/home/arb/LocalInstalls/anaconda3/lib/python3.5/site-packages/tornado/stack_context.py&quot;, line 314, in wrapped
+    ret = fn(*args, **kwargs)
+  File &quot;/home/arb/LocalInstalls/anaconda3/lib/python3.5/site-packages/nbconvert/postprocessors/serve.py&quot;, line 31, in finish_get
+    response.rethrow()
+  File &quot;/home/arb/LocalInstalls/anaconda3/lib/python3.5/site-packages/tornado/httpclient.py&quot;, line 583, in rethrow
+    raise self.error
+tornado.httpclient.HTTPError: HTTP 403: Forbidden
+ERROR:tornado.access:500 GET /reveal.js/plugin/notes/notes.html (127.0.0.1) 688.44ms</code></pre>
+<p>To close this instances press <em>control 'c'</em> in the <em>ipython notebook</em> terminal console</p>
+<p>Static presentations allow the presenter to see <em>speakers notes</em> (use the 's' key)</p>
+<p>If running dynamically run the scripts below</p>
+<h2 id="pre-load-some-useful-libraries">Pre load some useful libraries</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#Future proof python 2</span>
+<span class="im">from</span> __future__ <span class="im">import</span> print_function <span class="co">#For python3 print syntax</span>
+<span class="im">from</span> __future__ <span class="im">import</span> division
+
+<span class="co"># def</span>
+<span class="im">import</span> IPython.core.display
+
+<span class="co"># A function to collect user input - ipynb_input(varname=&#39;username&#39;, prompt=&#39;What is your username&#39;)</span>
+
+<span class="kw">def</span> ipynb_input(varname, prompt<span class="op">=</span><span class="st">&#39;&#39;</span>):
+        <span class="co">&quot;&quot;&quot;Prompt user for input and assign string val to given variable name.&quot;&quot;&quot;</span>
+        js_code <span class="op">=</span> (<span class="st">&quot;&quot;&quot;</span>
+<span class="st">            var value = prompt(&quot;</span><span class="sc">{prompt}</span><span class="st">&quot;,&quot;&quot;);</span>
+<span class="st">            var py_code = &quot;</span><span class="sc">{varname}</span><span class="st"> = &#39;&quot; + value + &quot;&#39;&quot;;</span>
+<span class="st">            IPython.notebook.kernel.execute(py_code);</span>
+<span class="st">        &quot;&quot;&quot;</span>).<span class="bu">format</span>(prompt<span class="op">=</span>prompt, varname<span class="op">=</span>varname)
+        <span class="cf">return</span> IPython.core.display.Javascript(js_code)
+    
+<span class="co"># inline</span>
+
+<span class="op">%</span>pylab inline</code></pre></div>
+<pre><code>Populating the interactive namespace from numpy and matplotlib</code></pre>
+
+<h2 id="about-me">About me</h2>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/Geolytics_ARB_Banner.png" alt="It&#39;s all about me - details about Anthony Beck" />
+<p class="caption">It's all about me - details about Anthony Beck</p>
+</div>
+<ul>
+<li>Honorary Research Fellow, University of Nottingham: <a href="http://orcid.org/0000-0002-2991-811X">orcid</a></li>
+<li>Director, Geolytics Limited - A spatial data analytics consultancy</li>
+</ul>
+<h2 id="about-this-presentation">About this presentation</h2>
+<ul>
+<li><a href="https://github.com/AntArch/Presentations_Github/tree/master/20151008_OpenGeo_Reuse_under_licence">Available on GitHub</a> - https://github.com/AntArch/Presentations_Github/</li>
+<li><a href="https://github.com/AntArch/Presentations_Github/blob/master/20150916_OGC_Reuse_under_licence/20151008_OpenGeo_Reuse_under_licence.pdf">Fully referenced PDF</a></li>
+</ul>
+
+<h1 id="contribution-to-giscience-learning-outcomes">Contribution to GIScience learning outcomes</h1>
+<p>This presentation contributes to the following learning outcomes for this course.</p>
+<ol style="list-style-type: decimal">
+<li>Knowledge and Understanding:
+<ul>
+<li>Appreciate the importance of standards for Geographic Information and the role of the Open Geospatial Consortium.</li>
+<li>Understand the term 'interoperability'.</li>
+<li>Appreciate the different models for database design.</li>
+<li>Understand the basis of Linked Data.</li>
+<li>Find UK government open data and understand some of the complexities in the use of this data.</li>
+<li>Appreciate the data issues involved in managing large distributed databases, Location-Based Services and the emergence of real-time data gathering through the 'Sensor-Web'.</li>
+<li>Understand the different models for creating international Spatial Data Infrastructures.</li>
+</ul></li>
+<li>Intellectual Skills:
+<ul>
+<li>Evaluate the role of standards and professional bodies in GIS.</li>
+<li>Articulate the meaning and importance of interoperability, semantics and ontologies.</li>
+<li>Assess the technical and organisational issues which come into play when attempting to design large distributed geographic databases aimed at supporting 'real-world' problems.</li>
+</ul></li>
+</ol>
+<p>Suggested Questions:</p>
+<ol style="list-style-type: decimal">
+<li>What do you think are the challenges for National Mapping Agencies and major Volunteer Geographic Data initiatives (OSM) are over the next 5 to 10 years?
+<ul>
+<li>This questions aims to get the student to think about how technology, policy and practice frameworks will impact upon the GI landscape. Will, for example, OSM make the Ordnance Survey irrelevant? What would then happen to organisations like the Land Registry that require credible data products to support their activites. How will things like the semantic web impact on GI. Can the aspirations of Open Data be realised and bring a wealth of nwe products and services. What impact will the Internet of Things have on GI.</li>
+</ul></li>
+<li>Describe the issues surrounding interoperability. How have the OGC, OSGeo and INSPIRE helped and what challenges remain.
+<ul>
+<li>This should be a simple description of data silos, technical interoperability (syntactic, semantic, schematic), standards, standards bodies and inspire. Full dscussions will consider non-technical interoperability.</li>
+</ul></li>
+<li>Is cartography relevant to modern GI? Discuss this in relation to map representations, the range of available open data and the needs of different users.
+<ul>
+<li>This is a somewhat open ended question with the purpose of getting the student to consider the differences between <em>mapping as a broadly static data representation</em> and <em>GI as a dynamic data rich discipline</em>. Obviously cartography or visualization is important - this is where issues like clutter, colour, visualization, symbology, generalisation can all be discussed. The <em>open data</em> point is to get the students to consider the range of available geo and attribute data and to think of GI as a spatial data stack. This should lead into the student being able to discuss generic products (providing similar service to the masses (i.e. maps)) and bespoke services (providing specific services to niche communities) which both use the same underlying data sources. Good answers will bring in some of the non-technical interoperability issues - particularly licencing.</li>
+</ul></li>
+</ol>
+<p>SORT OUT DROPBOX and then let Ana know my details.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># THINGS TO DISCUSS</span>
+
+<span class="co">## Data needs to be credible, accessible, properly licenceed. Bring in Internet of Things</span></code></pre></div>
+<h1 id="a-potted-history-of-mapping">A potted history of mapping</h1>
+<h2 id="in-the-beginning-was-the-geoword">In the beginning was the geoword</h2>
+<p>and the word was <strong><em>cartography</em></strong></p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/TheLensOfCartography.svg/1024px-TheLensOfCartography.svg.png" alt="The lens of cartography @TheLensOfCartography_beck_2015" />
+<p class="caption">The lens of cartography <span class="citation">@TheLensOfCartography_beck_2015</span></p>
+</div>
+
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Claudius_Ptolemy-_The_World.jpg/1024px-Claudius_Ptolemy-_The_World.jpg" alt="A static map (public domain) encapsulating spatial knowledge in a portable manner" />
+<p class="caption">A static map (public domain) encapsulating spatial knowledge in a portable manner</p>
+</div>
+<ul>
+<li>Cartography was king.</li>
+<li>Static representations of spatial knowledge with the cartographer deciding what to represent.
+<ul>
+<li>Hence, maps are domain specific knowledge repositories for spatial data</li>
+</ul></li>
+</ul>
+
+<h1 id="and-then-there-was-data-.........">And then there was data .........</h1>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Data_types_-_en.svg/576px-Data_types_-_en.svg.png" alt="Data @Data_types_en_beck_2015" />
+<p class="caption">Data <span class="citation">@Data_types_en_beck_2015</span></p>
+</div>
+
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/TheEndOfThe20thCentury.png" alt="But the data was siloed (restricted use)" />
+<p class="caption">But the data was siloed (restricted use)</p>
+</div>
+<p>Restrictive data</p>
+
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Islands_Of_Data.svg/1017px-Islands_Of_Data.svg.png" alt="The implications of a landscape of silo-ed data @IslandsOfData_en_beck_2015" />
+<p class="caption">The implications of a landscape of silo-ed data <span class="citation">@IslandsOfData_en_beck_2015</span></p>
+</div>
+<p>Disconnected data with different:</p>
+<ul>
+<li>Standards</li>
+<li>Quality</li>
+<li>Databases</li>
+<li>Semantics</li>
+</ul>
+
+<h1 id="why-is-this-an-issue-inspire">Why is this an issue: INSPIRE</h1>
+<p>describe inspire</p>
+
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/TheCatalyst.png" alt="Concerted efforts to de-silo data and make data interoperable (restricted use)" />
+<p class="caption">Concerted efforts to de-silo data and make data interoperable (restricted use)</p>
+</div>
+<p>Making data interoperable and open</p>
+
+<h1 id="interoperability">Interoperability</h1>
+<p>Put in interoperability quote here (plus references)</p>
+<p><a href="http://www.dau.mil/pubscats/atl%20docs/jan-feb/watson_jan-feb10.pdf">Defense interoperability</a></p>
+<blockquote>
+<p>As defined by DoD policy, interoperability is the ability of systems, units, or forces to provide data, information, material, and services to, and accept the same from, other systems, units, or forces; and to use the data, information, materiel, and services so exchanged to enable them to operate effectively together. IT and NSS interoperability includes both the technical exchange of information and the end-to-end operational effectiveness of that exchanged information as required for mission accomplishment. Interoperability is more than just information exchange; it includes systems, processes, procedures, organizations, and missions over the life cycle and must be balanced with information assurance.</p>
+</blockquote>
+
+<h1 id="technical-interoperability---levelling-the-field">Technical interoperability - levelling the field</h1>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/TechnicalInteroperableIntegrationOfSpatialData.svg/1024px-TechnicalInteroperableIntegrationOfSpatialData.svg.png" alt="Interoperable integration of spatial data - the technological issues @TechnicalInteroperableIntegrationOfSpatialData_beck_2015" />
+<p class="caption">Interoperable integration of spatial data - the technological issues <span class="citation">@TechnicalInteroperableIntegrationOfSpatialData_beck_2015</span></p>
+</div>
+
+<p>Discuss each interoperability and its resolution.</p>
+<p>Bring in:</p>
+<ul>
+<li>OGC - standards body (remember the standards must be open (read data/write data)</li>
+<li>GML (interoperable foramt) - interchange</li>
+</ul>
+
+<h1 id="what-did-technical-interoperability-facilitate">What did technical interoperability facilitate</h1>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/FromMapToModel.svg/1024px-FromMapToModel.svg.png" alt="From Map to Model The changing paradigm of map creation from cartography to data driven visualization @FromMapToModel_beck_2015" />
+<p class="caption">From Map to Model The changing paradigm of map creation from cartography to data driven visualization <span class="citation">@FromMapToModel_beck_2015</span></p>
+</div>
+<p>From Map to Model The changing paradigm of map creation from cartography to data driven visualization</p>
+
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Local_To_Global_integration_of_data_to_create_multiple_generic_products.svg/1024px-Local_To_Global_integration_of_data_to_create_multiple_generic_products.svg.png" alt="Local To Global integration of data to create multiple generic products @Local_To_Global_integration_of_data_to_create_multiple_generic_products_beck_2015" />
+<p class="caption">Local To Global integration of data to create multiple generic products <span class="citation">@Local_To_Global_integration_of_data_to_create_multiple_generic_products_beck_2015</span></p>
+</div>
+
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/ANewWorkingParadigm.png" alt="A new working paradigm (public domain)" />
+<p class="caption">A new working paradigm (public domain)</p>
+</div>
+
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/CartographyNoLongerKing.svg/1024px-CartographyNoLongerKing.svg.png" alt="Cartography is no longer key. Spatial mapping is now about the the formal and informal data stack. Elements such as provenance, credibility are much more important for use and re-use of this data. @CartographyNoLongerKing_beck_2015" />
+<p class="caption">Cartography is no longer key. Spatial mapping is now about the the formal and informal data stack. Elements such as provenance, credibility are much more important for use and re-use of this data. <span class="citation">@CartographyNoLongerKing_beck_2015</span></p>
+</div>
+
+<h1 id="the-world-was-a-happy-place.......">The world was a happy place.......</h1>
+<p>Our data was interoperable!</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Nonsymmetric_velocity_time_dilation.gif" alt="But time moved on @NonsymmetricVelocity_en_cleonis_2006" />
+<p class="caption">But time moved on <span class="citation">@NonsymmetricVelocity_en_cleonis_2006</span></p>
+</div>
+<h1 id="our-data-became-open-data">Our <em>data</em> became <strong>open data</strong></h1>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/SharedPresentations/Shared_HTML5/Images/ARB_WordleCloud.png" alt="open data word cloud of Anthony Beck" />
+<p class="caption">open data word cloud of Anthony Beck</p>
+</div>
+
+<h1 id="background---open.....-nesss">Background - open..... nesss</h1>
+<h2 id="in-communities">in communities</h2>
+<h2 id="in-government">in government</h2>
+<h2 id="in-academia">in academia</h2>
+
+
+<h1 id="open.....-nesss----in-government">Open..... nesss -- in government</h1>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/InteroperabilitySemanticsAndOpenData.png" alt="" />
+
+</div>
+<p>The Shakespeare review <span class="citation">[-@shakespeare_shakespeare_2013]</span> indicate that the amount of government Open Data, at least in the UK, is only going to grow. Open data has the potential to trigger a revolution in how governments think about providing services to citizens and how they measure their success: this produces societal impact. This will require an understanding of citizen needs, behaviours, and mental models, and how to use data to improve services.</p>
+
+<div class="figure">
+<embed src="http://www.mckinsey.com/~/media/McKinsey/dotcom/Insights/Business%20Technology/Open%20data%20Unlocking%20innovation%20and%20performance%20with%20liquid%20information/SVG_Open_data_Exhibit.ashx?mw=510" />
+<p class="caption">McKinsey report valuing <em>open data</em> <span class="citation">[@mckinsey_open_2013]</span></p>
+</div>
+<p>A <a href="http://www.mckinsey.com/insights/business_technology/open_data_unlocking_innovation_and_performance_with_liquid_information">McKinsey Global Institute report examines the economic impact of Open Data</a> <span class="citation">[@mckinsey_open_2013]</span> and estimates that globally open data could be worth a minimum of $3 trillion annually.</p>
+
+<h1 id="background---open.....-nesss-1">Background - open..... nesss</h1>
+<h2 id="in-academia-1">in academia</h2>
+<blockquote>
+<p>Open inquiry is at the heart of the scientific enterprise..... Science’s powerful capacity for self-correction comes from this openness to scrutiny and challenge.</p>
+</blockquote>
+<p><em>Science as an open enterprise</em> <span class="citation">[@royal_society_science_2012 p. 7]</span>.</p>
+<p>The Royal Society’s report Science as an open enterprise <span class="citation">[-@royal_society_science_2012]</span> identifies how 21<sup>st</sup> century communication technologies are changing the ways in which scientists conduct, and society engages with, science. The report recognises that ‘open’ enquiry is pivotal for the success of science, both in research and in society.</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Open_Science_Does_Not_Equal_Open_Access.svg/1024px-Open_Science_Does_Not_Equal_Open_Access.svg.png" alt="@open_science_does_not_equal_open_access_2013" />
+<p class="caption"><span class="citation">@open_science_does_not_equal_open_access_2013</span></p>
+</div>
+<p>This goes beyond open access to publications (Open Access), to include access to data and other research outputs (Open Data), and the process by which data is turned into knowledge (Open Science).</p>
+<h2 id="the-next-generation-open-data-in-academia">The next generation open data in academia</h2>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/zenodo.png" alt="" />
+
+</div>
+<p>Zenodo is a <strong>DATA REPOSITORY</strong> which offers: * accreditation * different licences * different exposure (private (closed), public (open) and embargoed (timestamped)) * DOIs * is free at the point of use<br />
+* is likely to be around for a long time * supported by Horizon 2020 and delivered by CREN</p>
+
+<h1 id="the-underlying-rationale-of-open-data-is">The underlying rationale of Open Data is:</h1>
+<ul>
+<li>unfettered access to large amounts of ‘raw’ data
+<ul>
+<li>enables patterns of re-use and knowledge creation that were previously impossible.</li>
+<li>improves transparency and efficiency</li>
+<li>encourages innovative service delivery</li>
+</ul></li>
+<li>introduces a range of data-mining and visualisation challenges,
+<ul>
+<li>which require multi-disciplinary collaboration across domains</li>
+<li>catalyst to research and industry</li>
+</ul></li>
+<li>supports the generation of new products, services and markets</li>
+<li>the prize for succeeding is improved knowledge-led policy and practice that transforms
+<ul>
+<li>communities,</li>
+<li>practitioners,</li>
+<li>science and</li>
+<li>society</li>
+</ul></li>
+</ul>
+<h1 id="the-open-data-landscape">the Open Data Landscape</h1>
+<p>Formal and informal data.OS versus VGI (Open Street Map)</p>
+<p>Conclude with Linked Data + Open Data = Linked Open Data</p>
+<h1 id="so-where-are-these-new-data-products">So where are these new data products?</h1>
+<p>Data, data everywhere - but where are the new derivatives and services?</p>
+
+<h1 id="non-technical-interoperability-issues">Non-technical interoperability issues?</h1>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Incompatibilities_And_Licence_Clauses.svg/989px-Incompatibilities_And_Licence_Clauses.svg.png" alt="Islands of incompatibility [@IncompatibilitiesAndLicenceClauses_en_beck_2016]" />
+<p class="caption">Islands of incompatibility <span class="citation">[@IncompatibilitiesAndLicenceClauses_en_beck_2016]</span></p>
+</div>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/InteroperableIntegrationOfSpatialData.svg/500px-InteroperableIntegrationOfSpatialData.svg.png" alt="The full stack that enables interoperable integration of spatial data @InteroperableIntegrationOfSpatialData_beck_2015" />
+<p class="caption">The full stack that enables interoperable integration of spatial data <span class="citation">@InteroperableIntegrationOfSpatialData_beck_2015</span></p>
+</div>
+<p>Issues surrounding non-technical interoperability include:</p>
+<ul>
+<li>Policy interoperabilty</li>
+<li>Licence interoperability</li>
+<li>Legal interoperability</li>
+<li>Social interoperability</li>
+</ul>
+<p>We will focus on licence interoperability</p>
+
+<h2 id="policy-interoperability">Policy Interoperability</h2>
+<p><a href="https://utd.edu/~lkhan/papers/Ontology%20based%20policy%20interoperability%20in%20geo-spatial%20domain.pdf">Access control</a></p>
+<p>Are you allowed to use data from this country?</p>
+<p><a href="http://www.ijdc.net/index.php/ijdc/article/view/167/235">From international journal of digital curation</a></p>
+<h2 id="social-interoperability">Social Interoperability</h2>
+<p>Social interoperability is concerned about the environment and the human processes involved in the information exchange.</p>
+<p><a href="https://www.diva-portal.org/smash/get/diva2:832850/FULLTEXT01.pdf">see here</a></p>
+<p>It's a bit wooley</p>
+<h2 id="legal-interoperability">Legal Interoperability</h2>
+<p>{The purpose of the Case Studies is to:}(https://rd-alliance.org/groups/rdacodata-legal-interoperability-ig.html)</p>
+<p>Provide more specific information on best practices, as well as barriers and constraints in a number of different scientific domains and communities of practice (lessons learned); Illustrate the variety of legal frameworks that govern research data, different approaches to intellectual property and copyright across jurisdictions, different disciplinary expectations and norms, and alternative mechanisms to address the legal interoperability of data that have been tried in practice; and Identify opportunities for cross-disciplinary, cross-domain fertilization and collaboration and for new initiatives to address key barriers and constraints.</p>
+<p><a href="https://rd-alliance.org/group/rdacodata-legal-interoperability-ig/wiki/legal-principles-data.html">Also look here</a></p>
+<p><a href="https://www.cigionline.org/publications/legal-interoperability-tool-combatting-fragmentation">Chatham house paper</a></p>
+<h3 id="licence-interoperability">Licence Interoperability</h3>
+<p>A specific form of legal interoperability</p>
+<h1 id="example-of-applying-the-semantic-web-to-licence-interoperability">Example of applying the semantic web to licence interoperability</h1>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/20151008_Re-UseUnderLicence.png" alt="The modern data landscape (restricted)" />
+<p class="caption">The modern data landscape (restricted)</p>
+</div>
+<p>There is a multitude of formal and informal data.</p>
+
+<h2 id="what-is-a-licence">What is a licence?</h2>
+<p><a href="https://en.wikipedia.org/wiki/License">Wikipedia state:</a></p>
+<blockquote>
+<p>A license may be granted by a party (&quot;licensor&quot;) to another party (&quot;licensee&quot;) as an element of an agreement between those parties.</p>
+</blockquote>
+<blockquote>
+<p>A shorthand definition of a license is &quot;an authorization (by the licensor) to use the licensed material (by the licensee).&quot;</p>
+</blockquote>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/ForOGC/SomeLicences_FromRDFLicences.png" alt="Some licences @rdflicense_2015" />
+<p class="caption">Some licences <span class="citation">@rdflicense_2015</span></p>
+</div>
+<p>Each of these data objects can be licenced in a different way. This shows some of the licences described by the RDFLicence ontology</p>
+
+<div class="figure">
+<img src="http://g.gravizo.com/g?%20digraph%20graphname%20%7B%20a%20%5Blabel=%22No%20derivation%22%5D;%20b%20%5Blabel=%22No%20Distribution%20and%20modification%22%5D;%20c%20%5Blabel=%22Any%22%5D;%20d%20%5Blabel=%22Read%22%5D;%20e%20%5Blabel=%22Distribution%22%5D;%20f%20%5Blabel=%22Modification%22%5D;%20g%20%5Blabel=%22Reproduction%22%5D;%20h%20%5Blabel=%22Present%22%5D;%20i%20%5Blabel=%22Sell%22%5D;%20j%20%5Blabel=%22Grant%20Use%22%5D;%20k%20%5Blabel=%22Include%20attribution%22%5D;%20l%20%5Blabel=%22Commercial%20use%22%5D;%20m%20%5Blabel=%22Public%22%5D;%20n%20%5Blabel=%22Share%20alike%22%5D;%20o%20%5Blabel=%22None%22%5D;%20p%20%5Blabel=%22No%20commercial%20use%22%5D;%20q%20%5Blabel=%22Derivation%22%5D;%20r%20%5Blabel=%22Include%20source%22%5D;%20s%20%5Blabel=%22Copyleft%22%5D;%20t%20%5Blabel=%22Include%20licence%22%5D;%20u%20%5Blabel=%22All%20reserved%22%5D;%20a%20-%3E%20c%20-%3E%20d%20-%3E%20j%20-%3E%20m%20-%3E%20o%20-%3E%20u%20-%3E%20a;%20u%20-%3E%20b%20-%3E%20c;%20c%20-%3E%20t%20-%3E%20s%20-%3E%20o%20-%3E%20p%20-%3E%20q%20-%3E%20l%20-%3E%20o;%20o%20-%3E%20n%20-%3E%20q%20-%3E%20j%20-%3E%20i%20-%3E%20g%20-%3E%20k%20-%3E%20l%20-%3E%20e%20-%3E%20c%20-%3E%20g%20-%3E%20h%20-%3E%20j%20-%3E%20f%20-%3E%20e%20-%3E%20r%20-%3E%20g;%20r%20-%3E%20s;%20%7D" alt="Concepts surrounding licences (derived from Formal Concept Analysis)" />
+<p class="caption">Concepts surrounding licences (derived from Formal Concept Analysis)</p>
+</div>
+<p>Concepts (derived from Formal Concept Analysis) surrounding licences</p>
+
+<p>Two lead organisations have developed legal frameworks for content licensing:</p>
+<ul>
+<li><a href="https://creativecommons.org/">Creative Commons (CC)</a> and</li>
+<li><a href="http://opendatacommons.org/">Open Data Commons (ODC)</a>.</li>
+</ul>
+<p>Until the release of <a href="https://wiki.creativecommons.org/4.0">CC version 4</a>, published in November 2013, the CC licence did not cover data. Between them, CC and ODC licences can cover all forms of digital work.</p>
+<ul>
+<li><strong>There are many other licence types</strong></li>
+<li>Many are bespoke
+<ul>
+<li>Bespoke licences are difficult to manage</li>
+<li>Many legacy datasets have bespoke licences</li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="https://farm4.staticflickr.com/3148/2732488224_aedf36e837_b_d.jpg" alt="Creative Commons @love_CC_2008" />
+<p class="caption">Creative Commons <span class="citation">@love_CC_2008</span></p>
+</div>
+<p>I'll describe CC in more detail</p>
+
+<h2 id="creative-commons-zero">Creative Commons Zero</h2>
+<p>Creative Commons Zero (CC0) is essentially public domain which allows:</p>
+<ul>
+<li>Reproduction</li>
+<li>Distribution</li>
+<li>Derivations</li>
+</ul>
+<h3 id="constraints-on-cc0">Constraints on CC0</h3>
+<p>The following clauses constrain CC0:</p>
+<ul>
+<li>Permissions
+<ul>
+<li>ND – No derivatives: the licensee can not derive new content from the resource.</li>
+</ul></li>
+<li>Requirements
+<ul>
+<li>BY – By attribution: the licensee must attribute the source.</li>
+<li>SA – Share-alike: if the licensee adapts the resource, it must be released under the same licence.</li>
+</ul></li>
+<li>Prohibitions
+<ul>
+<li>NC – Non commercial: the licensee must not use the work commercially without prior approval.</li>
+</ul></li>
+</ul>
+<h3 id="cc-license-combinations">CC license combinations</h3>
+<table>
+<caption><a href="https://docs.google.com/spreadsheets/d/17aT7Dj6QtE88XPS44oPQ7mVeSdY1YnZ1rlpjPvXNz0E/pub?single=true&amp;gid=0&amp;output=html">Creative Commons license combinations</a></caption>
+<thead>
+<tr class="header">
+<th align="left">License</th>
+<th align="left">Reproduction</th>
+<th align="left">Distribution</th>
+<th align="left">Derivation</th>
+<th align="left">BY</th>
+<th align="left">SA</th>
+<th align="left">NC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CC0</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">CC-BY-ND</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">CC-BY-NC-ND</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">CC-BY</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">CC-BY-SA</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">CC-BY-NC</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="odd">
+<td align="left">CC-BY-NC-SA</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="why-are-licenses-important">Why are licenses important?</h1>
+<ul>
+<li>They tell you what you can and can't do with 'stuff'</li>
+<li>Very significant when multiple datasets are combined
+<ul>
+<li>It then becomes an issue of license compatibility</li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Floss-license-slide-image.png" alt="Compatibility of common open-source software licenses @Floss-license-slide-image_Wheeler_2007" />
+<p class="caption">Compatibility of common open-source software licenses <span class="citation">@Floss-license-slide-image_Wheeler_2007</span></p>
+</div>
+
+<h2 id="which-is-important-when-we-mash-up-data">Which is important when we mash up data</h2>
+<p>Certain licences when combined:</p>
+<ul>
+<li>Are incompatible
+<ul>
+<li>Creating data islands</li>
+</ul></li>
+<li>Inhibit commercial exploitation (NC)</li>
+<li>Force the adoption of certain licences
+<ul>
+<li>If you want people to commercially exploit your stuff don't incorporate CC-BY-NC-SA data!</li>
+</ul></li>
+<li>Stops the derivation of <em>new works</em></li>
+</ul>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Incompatibilities_And_Licence_Clauses.svg/989px-Incompatibilities_And_Licence_Clauses.svg.png" alt="Islands of incompatibility [@IncompatibilitiesAndLicenceClauses_en_beck_2016]" />
+<p class="caption">Islands of incompatibility <span class="citation">[@IncompatibilitiesAndLicenceClauses_en_beck_2016]</span></p>
+</div>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/ConceptualLicenceProcessingWorkflow.svg/1024px-ConceptualLicenceProcessingWorkflow.svg.png" alt="A conceptual licence processing workflow @ConceptualLicenceProcessingWorkflow_beck_2015" />
+<p class="caption">A conceptual licence processing workflow <span class="citation">@ConceptualLicenceProcessingWorkflow_beck_2015</span></p>
+</div>
+<p>A conceptual licence processing workflow. The licence processing service analyses the incoming licence metadata and determines if the data can be legally integrated and any resulting licence implications for the derived product.</p>
+
+<h1 id="a-rudimentry-logic-example">A rudimentry logic example</h1>
+<pre><code>Data1 hasDerivedContentIn NewThing.
+
+Data1 hasLicence a cc-by-sa.
+
+What hasLicence a cc-by-sa? #reason here
+
+If X hasDerivedContentIn Y and hasLicence Z then Y hasLicence Z. #reason here
+
+Data2 hasDerivedContentIn NewThing.
+
+Data2 hasLicence a cc-by-nc-sa.
+
+What hasLicence a cc-by-nc-sa? #reason here
+
+Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here</code></pre>
+<p>And processing this within the Protege reasoning environment</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> IPython.display <span class="im">import</span> YouTubeVideo
+YouTubeVideo(<span class="st">&#39;jUzGF401vLc&#39;</span>)</code></pre></div>
+<pre><code>    &lt;iframe
+        width=&quot;400&quot;
+        height=&quot;300&quot;
+        src=&quot;https://www.youtube.com/embed/jUzGF401vLc&quot;
+        frameborder=&quot;0&quot;
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+    </code></pre>
+
+<h2 id="heres-something-i-prepared-earlier">Here's something I prepared earlier</h2>
+<p>A live presentation (for those who weren't at the event).....</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> IPython.display <span class="im">import</span> YouTubeVideo
+YouTubeVideo(<span class="st">&#39;tkRB5Rp1_W4&#39;</span>)</code></pre></div>
+<pre><code>    &lt;iframe
+        width=&quot;400&quot;
+        height=&quot;300&quot;
+        src=&quot;https://www.youtube.com/embed/tkRB5Rp1_W4&quot;
+        frameborder=&quot;0&quot;
+        allowfullscreen
+    &gt;&lt;/iframe&gt;
+    </code></pre>
+
+<h1 id="a-more-robust-logic">A more robust logic</h1>
+<ul>
+<li>Would need to decouple licence incompatibility from licence name into licence clause (see table below)</li>
+<li>Deal with all licence type</li>
+<li>Provide recommendations based on desired derivative licence type</li>
+<li>Link this through to the type of process in a workflow:
+<ul>
+<li>data derivation is, from a licence position, very different to contextual display</li>
+</ul></li>
+</ul>
+<table>
+<caption><a href="https://docs.google.com/spreadsheets/d/17aT7Dj6QtE88XPS44oPQ7mVeSdY1YnZ1rlpjPvXNz0E/pub?single=true&amp;gid=0&amp;output=html">Creative Commons license combinations</a></caption>
+<thead>
+<tr class="header">
+<th align="left">License</th>
+<th align="left">Reproduction</th>
+<th align="left">Distribution</th>
+<th align="left">Derivation</th>
+<th align="left">BY</th>
+<th align="left">SA</th>
+<th align="left">NC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CC0</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">CC-BY-ND</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">CC-BY-NC-ND</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">CC-BY</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">CC-BY-SA</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">CC-BY-NC</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="odd">
+<td align="left">CC-BY-NC-SA</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">ODC-PDDL</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">ODC-BY</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">ODC-ODbL</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+<tr class="odd">
+<td align="left">OGL 2.0</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">OS OpenData</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">?</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="ogc-and-licence-interoperability">OGC and Licence interoperability</h1>
+<ul>
+<li>The geo business landscape is increasingly based on integrating heterogeneous data to develop new products</li>
+<li>Licence heterogeneity is a barrier to data integration and interoperability</li>
+<li>A licence calculus can help resolve and identify heterogenties leading to
+<ul>
+<li>legal compliance</li>
+<li>confidence</li>
+</ul></li>
+<li>Use of standards and collaboration with organisations is crucial
+<ul>
+<li><a href="https://github.com/theodi/open-data-licensing">Open Data Licensing ontology</a></li>
+<li><a href="http://theodi.org/">The Open Data Institute</a></li>
+</ul></li>
+<li>Failure to do this could lead to breaches in data licenses
+<ul>
+<li>and we all know where that puts us........</li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/393477/ImageBank/Jail_Bars_Icon.png" alt="Breaching a data license can be serious (restricted = randomly!)" />
+<p class="caption">Breaching a data license can be serious (restricted = randomly!)</p>
+</div>
+
+<h1 id="ontologies-semantics-and-linked-data">Ontologies, semantics and linked data</h1>
+<p>We've already been introduced to ontologies in the licence calculus example.</p>
+<p>SLides to describe ontologies, semantics and linked data</p>
+<p>Inlcude geo-logic from Brandon</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/The_Semantic_Web_Compared_To_The_Traditional_Web.svg/1024px-The_Semantic_Web_Compared_To_The_Traditional_Web.svg.png" alt="The Semantic Web Compared To The Traditional Web @SemWeb_TradWeb_en_beck_2015" />
+<p class="caption">The Semantic Web Compared To The Traditional Web <span class="citation">@SemWeb_TradWeb_en_beck_2015</span></p>
+</div>
+<h1 id="questions">Questions</h1>
+<p>In terms of discussion I'm interested in how these issues affect you.........</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Processing_transparency_between_open_and_closed_systems.svg/630px-Processing_transparency_between_open_and_closed_systems.svg.png" alt="Processing transparency between open and closed systems" />
+<p class="caption">Processing transparency between open and closed systems</p>
+</div>
+
+<h1 id="references">References</h1>

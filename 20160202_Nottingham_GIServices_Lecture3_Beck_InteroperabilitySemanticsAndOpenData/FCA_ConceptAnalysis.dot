@@ -1,0 +1,29 @@
+digraph graphname {
+rankdir=LR;
+     a [label="No derivation"];
+     b [label="No Distribution and modification"];
+     c [label="Any"];
+     d [label="Read"];
+     e [label="Distribution"];
+     f [label="Modification"];
+     g [label="Reproduction"];
+     h [label="Present"];
+     i [label="Sell"];
+     j [label="Grant Use"];
+     k [label="Include attribution"];
+     l [label="Commercial use"];
+     m [label="Public"];
+     n [label="Share alike"];
+     o [label="None"];
+     p [label="No commercial use"];
+     q [label="Derivation"];
+     r [label="Include source"];
+     s [label="Copyleft"];
+     t [label="Include licence"];
+     u [label="All reserved"];
+     a -> c -> d -> j -> m -> o -> u -> a;
+     u -> b -> c;
+     c -> t -> s -> o -> p -> q -> l -> o;
+     o -> n -> q -> j -> i -> g -> k -> l -> e -> c -> g -> h -> j -> f -> e -> r -> g;
+     r -> s;
+}
