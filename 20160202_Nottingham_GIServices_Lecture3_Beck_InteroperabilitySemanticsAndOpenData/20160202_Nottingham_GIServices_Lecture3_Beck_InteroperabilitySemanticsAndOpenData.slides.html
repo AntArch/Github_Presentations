@@ -282,7 +282,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s">&#39;F4rFuIb1Ie4&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -319,14 +319,14 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">## PDF output using pandoc</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">## PDF output using pandoc</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 
 
 <span class="c">### Export this notebook as markdown</span>
 <span class="n">commandLineSyntax</span> <span class="o">=</span> <span class="s">&#39;ipython nbconvert --to markdown 20160202_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb&#39;</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">commandLineSyntax</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">commandLineSyntax</span><span class="p">)</span>
 
 <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">commandLineSyntax</span><span class="p">)</span>
 
@@ -392,7 +392,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">watermark</span> -a &quot;Anthony Beck&quot;  -d -v -m -g
+<div class=" highlight hl-ipython2"><pre><span class="o">%</span><span class="k">watermark</span> -a &quot;Anthony Beck&quot;  -d -v -m -g
 </pre></div>
 
 </div>
@@ -431,7 +431,7 @@ Git hash   :
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#List of installed conda packages</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#List of installed conda packages</span>
 <span class="o">!</span>conda list
 </pre></div>
 
@@ -670,7 +670,7 @@ zlib                      1.2.8                         0    defaults
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#List of installed pip packages</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#List of installed pip packages</span>
 <span class="o">!</span>pip list
 </pre></div>
 
@@ -862,10 +862,10 @@ xlwt (1.0.0)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Notes don&#39;t show in a python3 environment</span>
+<div class=" highlight hl-ipython2"><pre><span class="c"># Notes don&#39;t show in a python3 environment</span>
 
 <span class="o">!</span>ipython nbconvert 20160202_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb --to slides --post serve
 </pre></div>
@@ -880,114 +880,17 @@ xlwt (1.0.0)
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[NbConvertApp] WARNING | pattern &apos;2016_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb&apos; matched no files
-This application is used to convert notebook files (*.ipynb) to various other
-formats.
-
-WARNING: THE COMMANDLINE INTERFACE MAY CHANGE IN FUTURE RELEASES.
-
-Options
--------
-
-Arguments that take values are actually convenience aliases to full
-Configurables, whose aliases are listed on the help line. For more information
-on full configurables, see &apos;--help-all&apos;.
-
---debug
-    set log level to logging.DEBUG (maximize logging output)
---stdout
-    Write notebook output to stdout instead of files.
---allow-errors
-    Continue notebook execution even if one of the cells throws an error and include the error message in the cell output (the default behaviour is to abort conversion). This flag is only relevant if &apos;--execute&apos; was specified, too.
---execute
-    Execute the notebook prior to export.
---generate-config
-    generate default config file
---inplace
-    Run nbconvert in place, overwriting the existing notebook (only 
-    relevant when converting to notebook format)
--y
-    Answer yes to any questions instead of prompting.
---reveal-prefix=&lt;Unicode&gt; (SlidesExporter.reveal_url_prefix)
-    Default: &apos;&apos;
-    The URL prefix for reveal.js. This can be a a relative URL for a local copy
-    of reveal.js, or point to a CDN.
-    For speaker notes to work, a local reveal.js prefix must be used.
---template=&lt;Unicode&gt; (TemplateExporter.template_file)
-    Default: &apos;&apos;
-    Name of the template file to use
---post=&lt;DottedOrNone&gt; (NbConvertApp.postprocessor_class)
-    Default: &apos;&apos;
-    PostProcessor class used to write the  results of the conversion
---output=&lt;Unicode&gt; (NbConvertApp.output_base)
-    Default: &apos;&apos;
-    overwrite base name use for output files. can only be used when converting
-    one notebook at a time.
---to=&lt;CaselessStrEnum&gt; (NbConvertApp.export_format)
-    Default: &apos;html&apos;
-    Choices: [&apos;custom&apos;, &apos;html&apos;, &apos;latex&apos;, &apos;markdown&apos;, &apos;notebook&apos;, &apos;pdf&apos;, &apos;python&apos;, &apos;rst&apos;, &apos;script&apos;, &apos;slides&apos;]
-    The export format to be used.
---config=&lt;Unicode&gt; (JupyterApp.config_file)
-    Default: &apos;&apos;
-    Full path of a config file.
---nbformat=&lt;Enum&gt; (NotebookExporter.nbformat_version)
-    Default: 4
-    Choices: [1, 2, 3, 4]
-    The nbformat version to write. Use this to downgrade notebooks.
---writer=&lt;DottedObjectName&gt; (NbConvertApp.writer_class)
-    Default: &apos;FilesWriter&apos;
-    Writer class used to write the  results of the conversion
---log-level=&lt;Enum&gt; (Application.log_level)
-    Default: 30
-    Choices: (0, 10, 20, 30, 40, 50, &apos;DEBUG&apos;, &apos;INFO&apos;, &apos;WARN&apos;, &apos;ERROR&apos;, &apos;CRITICAL&apos;)
-    Set the log level by value or name.
-
-To see all available configurables, use &#96;--help-all&#96;
-
-Examples
---------
-
-    The simplest way to use nbconvert is
-    
-    &gt; jupyter nbconvert mynotebook.ipynb
-    
-    which will convert mynotebook.ipynb to the default format (probably HTML).
-    
-    You can specify the export format with &#96;--to&#96;.
-    Options include [&apos;custom&apos;, &apos;html&apos;, &apos;latex&apos;, &apos;markdown&apos;, &apos;notebook&apos;, &apos;pdf&apos;, &apos;python&apos;, &apos;rst&apos;, &apos;script&apos;, &apos;slides&apos;]
-    
-    &gt; jupyter nbconvert --to latex mynotebook.ipynb
-    
-    Both HTML and LaTeX support multiple output templates. LaTeX includes
-    &apos;base&apos;, &apos;article&apos; and &apos;report&apos;.  HTML includes &apos;basic&apos; and &apos;full&apos;. You
-    can specify the flavor of the format used.
-    
-    &gt; jupyter nbconvert --to html --template basic mynotebook.ipynb
-    
-    You can also pipe the output to stdout, rather than a file
-    
-    &gt; jupyter nbconvert mynotebook.ipynb --stdout
-    
-    PDF is generated via latex
-    
-    &gt; jupyter nbconvert mynotebook.ipynb --to pdf
-    
-    You can get (and serve) a Reveal.js-powered slideshow
-    
-    &gt; jupyter nbconvert myslides.ipynb --to slides --post serve
-    
-    Multiple notebooks can be given at the command line in a couple of 
-    different ways:
-    
-    &gt; jupyter nbconvert notebook*.ipynb
-    &gt; jupyter nbconvert notebook1.ipynb notebook2.ipynb
-    
-    or you can specify the notebooks list in a config file, containing::
-    
-        c.NbConvertApp.notebooks = [&quot;my_notebook.ipynb&quot;]
-    
-    &gt; jupyter nbconvert --config mycfg.py
-
+<pre>/home/arb/LocalPython/Anaconda27/anaconda/lib/python2.7/site-packages/IPython/nbconvert.py:13: ShimWarning: The &#96;IPython.nbconvert&#96; package has been deprecated. You should import from ipython_nbconvert instead.
+  &quot;You should import from ipython_nbconvert instead.&quot;, ShimWarning)
+[NbConvertApp] Converting notebook 20160202_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.ipynb to slides
+[NbConvertApp] Writing 354330 bytes to 20160202_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.slides.html
+[NbConvertApp] Redirecting reveal.js requests to https://cdn.jsdelivr.net/reveal.js/2.6.2
+Serving your slides at http://127.0.0.1:8000/20160202_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.slides.html
+Use Control-C to stop this server
+Created new window in existing browser session.
+WARNING:tornado.access:404 GET /custom.css (127.0.0.1) 2.89ms
+WARNING:tornado.access:404 GET /favicon.ico (127.0.0.1) 1.02ms
+WARNING:tornado.access:404 GET /custom.css (127.0.0.1) 0.78ms
 </pre>
 </div>
 </div>
@@ -1022,9 +925,9 @@ Examples
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#Future proof python 2</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span> <span class="c">#For python3 print syntax</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#Future proof python 2</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span> <span class="c">#For python3 print syntax</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
 
 <span class="c"># def</span>
 <span class="kn">import</span> <span class="nn">IPython.core.display</span>
@@ -1076,7 +979,7 @@ Examples
 </ul>
 <h2 id="About-this-presentation">About this presentation<a class="anchor-link" href="#About-this-presentation">&#182;</a></h2><ul>
 <li><a href="https://github.com/AntArch/Presentations_Github/tree/master/20151008_OpenGeo_Reuse_under_licence">Available on GitHub</a> - <a href="https://github.com/AntArch/Presentations_Github/">https://github.com/AntArch/Presentations_Github/</a></li>
-<li><a href="https://github.com/AntArch/Presentations_Github/blob/master/20150916_OGC_Reuse_under_licence/20151008_OpenGeo_Reuse_under_licence.pdf">Fully referenced PDF</a></li>
+<li><a href="https://github.com/AntArch/Presentations_Github/blob/master/20160202_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData/20160202_Nottingham_GIServices_Lecture3_Beck_InteroperabilitySemanticsAndOpenData.pdf">Fully referenced PDF</a></li>
 </ul>
 
 </div>
@@ -1289,7 +1192,7 @@ Examples
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s">&#39;xew6qI-6wNk&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -1367,19 +1270,6 @@ Examples
 <h1 id="Interoperability">Interoperability<a class="anchor-link" href="#Interoperability">&#182;</a></h1><blockquote><p>is a property of a product or system, whose interfaces are completely understood, to work with other products or systems, present or future, without any restricted access or implementation.</p>
 </blockquote>
 <p>@wikipedia_interoperability_2016</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="http://www.dau.mil/pubscats/atl%20docs/jan-feb/watson_jan-feb10.pdf">The Defense domain are a bit more explicit......</a></p>
-<blockquote><p>As defined by DoD policy, interoperability is the ability of systems, units, or forces to provide data, information, material, and services to, and accept the same from, other systems, units, or forces; and to use the data, information, material, and services so exchanged to enable them to operate effectively together. IT and NSS interoperability includes both the technical exchange of information and the end-to-end operational effectiveness of that exchanged information as required for mission accomplishment. Interoperability is more than just information exchange; it includes systems, processes, procedures, organizations, and missions over the life cycle and must be balanced with information assurance.</p>
-</blockquote>
-<p>@watson_joint_2010</p>
 
 </div>
 </div>
@@ -1546,7 +1436,7 @@ Examples
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://www.opengeospatial.org/standards&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -1848,8 +1738,8 @@ This will require an understanding of citizen needs, behaviours, and mental mode
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
-<span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://www.osgeo.org/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://www.osgeo.org/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1903,6 +1793,19 @@ This will require an understanding of citizen needs, behaviours, and mental mode
 </div>
 </div>
 </div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Interoperability">Interoperability<a class="anchor-link" href="#Interoperability">&#182;</a></h1><p><a href="http://www.dau.mil/pubscats/atl%20docs/jan-feb/watson_jan-feb10.pdf">The Defense domain are a bit more explicit......</a></p>
+<blockquote><p>As defined by DoD policy, interoperability is the ability of systems, units, or forces to provide data, information, material, and services to, and accept the same from, other systems, units, or forces; and to use the data, information, material, and services so exchanged to enable them to operate effectively together. IT and NSS interoperability includes both the technical exchange of information and the end-to-end operational effectiveness of that exchanged information as required for mission accomplishment. Interoperability is more than just information exchange; it includes systems, processes, procedures, organizations, and missions over the life cycle and must be balanced with information assurance.</p>
+</blockquote>
+<p>@watson_joint_2010</p>
+
+</div>
+</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2431,37 +2334,14 @@ Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here</code><
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s">&#39;jUzGF401vLc&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-        <iframe
-            width="400"
-            height="300"
-            src="https://www.youtube.com/embed/jUzGF401vLc"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -2481,7 +2361,7 @@ Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here</code><
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">YouTubeVideo</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s">&#39;tkRB5Rp1_W4&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -2808,7 +2688,7 @@ Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here</code><
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2884,13 +2764,13 @@ Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here</code><
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://lov.okfn.org/dataset/lov/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -2954,7 +2834,7 @@ Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here</code><
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3015,7 +2895,7 @@ Nothing hasLicence a cc-by-nc-sa and hasLicence a cc-by-sa. #reason here</code><
 <p>If we had other logic that told us that 'newborn' is the same as saying less than one year then we can also infer</p>
 
 <pre><code>'Ching Ching' is a Cub.</code></pre>
-<p>In an ontology you can say <em>Anything about Anything</em>. Whilst carnivore is a generally useful concept about <em>bears</em> it is not <em>specifically</em> useful when considering <em>pandas</em>. The domain of application is clearly important.</p>
+<p>In an ontology/RDF you can say <em>Anything about Anything</em>. Whilst carnivore is a generally useful concept about <em>bears</em> it is not <em>specifically</em> useful when considering <em>pandas</em>. <strong>The domain of application is clearly important.</strong></p>
 
 </div>
 </div>
@@ -3079,13 +2959,13 @@ ogc:within))
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://www.opengeospatial.org/projects/groups/geosparqlswg&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3116,19 +2996,15 @@ ogc:within))
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Linked Data and Geo</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Linked-Data-and-Geo">Linked Data and Geo<a class="anchor-link" href="#Linked-Data-and-Geo">&#182;</a></h1>
 </div>
 </div>
-</div>
-
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3155,7 +3031,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://data.ordnancesurvey.co.uk/doc/50kGazetteer/177276&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3192,7 +3068,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://data.ordnancesurvey.co.uk/id/postcodeunit/NG72QL&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3229,7 +3105,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://data.ordnancesurvey.co.uk/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3266,7 +3142,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://data.ordnancesurvey.co.uk/ontology/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3303,7 +3179,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://data.ordnancesurvey.co.uk/datasets/code-point-open/explorer/sparql&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3335,25 +3211,21 @@ ogc:within))
 </div>
 
 </div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">## Open Street Map</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Open-Street-Map">Open Street Map<a class="anchor-link" href="#Open-Street-Map">&#182;</a></h2>
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://linkedgeodata.org/About&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3390,7 +3262,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://browser.linkedgeodata.org/&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3436,7 +3308,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://www.geonames.org/ontology/documentation.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3473,7 +3345,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://www.geonames.org/maps/google_52.94_358.8.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3510,7 +3382,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://lov.okfn.org/dataset/lov/vocabs/gn&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3556,7 +3428,7 @@ ogc:within))
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s">&#39;http://lov.okfn.org/dataset/lov/vocabs/?q=geo+space+address+geonames+os+spatial&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 
@@ -3608,7 +3480,7 @@ ogc:within))
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -3769,9 +3641,9 @@ What isPartOf Europe?</code></pre>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="ow">and</span> <span class="n">more</span>
+<div class=" highlight hl-ipython2"><pre><span class="ow">and</span> <span class="n">more</span>
 
-<span class="err">```</span>
+<span class="sb">``</span><span class="err">`</span>
 
 <span class="n">If</span> <span class="n">X</span> <span class="n">spatiallyContains</span> <span class="n">Y</span> <span class="ow">and</span> <span class="n">X</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">city</span> <span class="n">then</span> <span class="n">Y</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">place</span> <span class="ow">and</span> <span class="n">Y</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">cityPart</span><span class="o">.</span>
 
@@ -3780,7 +3652,7 @@ What isPartOf Europe?</code></pre>
 
 <span class="n">What</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">place</span><span class="o">.</span>
 
-<span class="err">```</span>
+<span class="sb">``</span><span class="err">`</span>
 </pre></div>
 
 </div>
@@ -3793,17 +3665,17 @@ What isPartOf Europe?</code></pre>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="ow">and</span> <span class="n">more</span>
+<div class=" highlight hl-ipython2"><pre><span class="ow">and</span> <span class="n">more</span>
 
-<span class="err">```</span>
+<span class="sb">``</span><span class="err">`</span>
 <span class="n">UK</span> <span class="n">isPartOf</span> <span class="n">Europe</span><span class="o">.</span>
 
 <span class="n">UK</span> <span class="ow">is</span> <span class="n">sameAs</span> <span class="n">UnitedKingdom</span><span class="o">.</span>
 
 <span class="n">If</span> <span class="n">X</span> <span class="n">has</span> <span class="n">a</span> <span class="n">port</span> <span class="n">then</span> <span class="n">X</span> <span class="n">borders</span> <span class="n">Water</span><span class="o">.</span>
 
-<span class="n">What</span> <span class="n">borders</span> <span class="n">Water</span><span class="o">?</span>
-<span class="err">```</span>
+<span class="n">What</span> <span class="n">borders</span> Water<span class="o">?</span>
+<span class="sb">``</span><span class="err">`</span>
 </pre></div>
 
 </div>
