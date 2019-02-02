@@ -7,7 +7,7 @@ Dr. Anthony Beck (GeoLytics Ltd.)
 Speaker: Dr Ant Beck
 Venue: Room 4.31, University of Edinburgh Informatics Forum, 10 Crichton Street, Edinburgh, EH8 9AB
 [BCS link](http://www.edinburgh.bcs.org/events/index.htm)
-[GIT link]()
+[GIT link](https://github.com/AntArch/Presentations_Github/tree/master/20190306_BCS_Scotland_Presentation)
 ```
 
 ## Bio
