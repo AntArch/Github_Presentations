@@ -1,5 +1,5 @@
 ---
-title:  'What characteristics are required for Global Address applications in the 21st century?'
+title:  'Going global: the return of the address wars'
 author: Anthony Beck (GeoLytics)
 tags: Future Addressing
 bibliography: references.bib
@@ -10,7 +10,9 @@ abstract: |
 
   6th March 2019
 
-  18:30 - 19:45	What characteristics are required for Global Address applications in the 21st century?
+  18:30 - 19:45	Going global: the return of the address wars
+
+  or 'What characteristics are required for Global Address applications in the 21st century?'
 
   Speaker: Dr Ant Beck
 
